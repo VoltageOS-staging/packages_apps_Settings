@@ -481,4 +481,6 @@ public class Settings extends SettingsActivity {
     public static class PreviouslyConnectedDeviceActivity extends SettingsActivity { /* empty */ }
 
     public static class ScreenTimeoutActivity extends SettingsActivity { /* empty */ }
+
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
 }
