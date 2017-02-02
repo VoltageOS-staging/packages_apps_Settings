@@ -266,4 +266,7 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="app_volume_title">Per-app volume control</string>
     <string name="app_volume_summary">Allow to set different volume levels for each app</string>
 
+    <!-- Running Services -->
+    <string name="background_processes_settings_title">Process in background</string>
+
 </resources>
