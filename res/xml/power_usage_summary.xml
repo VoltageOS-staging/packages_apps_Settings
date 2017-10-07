@@ -77,6 +77,14 @@
         android:summary="@string/idle_manager_summary"
         android:defaultValue="false" />
 
+    <!-- Battery light -->
+    <Preference
+        android:key="battery_lights"
+        android:title="@string/battery_light_title"
+        android:summary="@string/battery_light_summary"
+        android:fragment="com.android.settings.voltage.notificationlight.BatteryLightSettings"
+        settings:controller="com.android.settings.voltage.notificationlight.BatteryLightPreferenceController" />
+
     <SwitchPreferenceCompat
         android:key="battery_percentage"
         android:title="@string/battery_percentage"
