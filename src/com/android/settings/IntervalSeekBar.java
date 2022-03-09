@@ -30,8 +30,8 @@ import android.widget.SeekBar;
 public class IntervalSeekBar extends SeekBar {
     private float mMin;
     private float mMax;
-    private float mDefault;
-    private float mMultiplier;
+    private final float mDefault;
+    private final float mMultiplier;
 
     public IntervalSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
