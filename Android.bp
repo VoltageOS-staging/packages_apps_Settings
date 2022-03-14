@@ -52,9 +52,8 @@ android_library {
         "SpaPrivilegedLib-defaults",
     ],
 
-    srcs: [
-        "src/**/*.java",
-        "src/**/*.kt",
+    srcs: ["src/**/*.java", "src/**/*.kt",
+           "Powerhub/src/**/*.java",
     ],
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
@@ -64,6 +63,7 @@ android_library {
         "res",
         "res-export", // for external usage
         "res-product",
+        "Powerhub/res",
     ],
     static_libs: [
         // External dependencies
@@ -126,6 +126,11 @@ android_library {
         "telephony-common",
         "ims-common",
     ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+
 }
 
 platform_compat_config {
