@@ -196,6 +196,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.power.hub.powerhub;
 import com.power.hub.fragments.SmartPixels;
+import com.android.settings.voltage.tether.WifiTetherClientManager;
 
 public class SettingsGateway {
 
@@ -380,7 +381,8 @@ public class SettingsGateway {
             powerhub.class.getName(),
             RunningServices.class.getName(),
             SmartPixels.class.getName(),
-            LiveDisplaySettings.class.getName()
+            LiveDisplaySettings.class.getName(),
+            WifiTetherClientManager.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
