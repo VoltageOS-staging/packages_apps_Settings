@@ -145,6 +145,8 @@ public class UserSettings extends SettingsPreferenceFragment
     private static final String KEY_GUEST_USER_CATEGORY = "guest_user_category";
     private static final String KEY_ALLOW_MULTIPLE_USERS = "allow_multiple_users";
     private static final String KEY_USER_SETTINGS_SCREEN = "user_settings_screen";
+    private static final String KEY_SEND_CENSORED_NOTIFICATIONS =
+            "user_settings_send_censored_notifications_to_current";
     private static final String KEY_USER_SWITCH_TOGGLE = "multiple_users_main_switch";
 
     private static final String SETTING_GUEST_HAS_LOGGED_IN = "systemui.guest_has_logged_in";
@@ -241,6 +243,7 @@ public class UserSettings extends SettingsPreferenceFragment
     private AddUserWhenLockedPreferenceController mAddUserWhenLockedPreferenceController;
     private GuestTelephonyPreferenceController mGuestTelephonyPreferenceController;
     private RemoveGuestOnExitPreferenceController mRemoveGuestOnExitPreferenceController;
+    private SendCensoredNotificationsToCurrentUserPreferenceController mSendCensoredNotificationsToCurrentUserPreferenceController;
     private MultiUserTopIntroPreferenceController mMultiUserTopIntroPreferenceController;
     private TimeoutToDockUserPreferenceController mTimeoutToDockUserPreferenceController;
     private UserCreatingDialog mUserCreatingDialog;
@@ -347,6 +350,10 @@ public class UserSettings extends SettingsPreferenceFragment
         mRemoveGuestOnExitPreferenceController = new RemoveGuestOnExitPreferenceController(
                 activity, KEY_REMOVE_GUEST_ON_EXIT, this, mHandler);
 
+        mSendCensoredNotificationsToCurrentUserPreferenceController =
+                new SendCensoredNotificationsToCurrentUserPreferenceController(activity,
+                        KEY_SEND_CENSORED_NOTIFICATIONS);
+
         mMultiUserTopIntroPreferenceController = new MultiUserTopIntroPreferenceController(activity,
                 KEY_MULTIUSER_TOP_INTRO);
 
@@ -362,6 +369,7 @@ public class UserSettings extends SettingsPreferenceFragment
         mAddUserWhenLockedPreferenceController.displayPreference(screen);
         mGuestTelephonyPreferenceController.displayPreference(screen);
         mRemoveGuestOnExitPreferenceController.displayPreference(screen);
+        mSendCensoredNotificationsToCurrentUserPreferenceController.displayPreference(screen);
         mMultiUserTopIntroPreferenceController.displayPreference(screen);
         mTimeoutToDockUserPreferenceController.displayPreference(screen);
         if (Flags.changeSwitchBarIntoMainPreference()) {
@@ -372,6 +380,8 @@ public class UserSettings extends SettingsPreferenceFragment
 
         screen.findPreference(mAddUserWhenLockedPreferenceController.getPreferenceKey())
                 .setOnPreferenceChangeListener(mAddUserWhenLockedPreferenceController);
+        screen.findPreference(mSendCensoredNotificationsToCurrentUserPreferenceController.getPreferenceKey())
+                .setOnPreferenceChangeListener(mSendCensoredNotificationsToCurrentUserPreferenceController);
 
         screen.findPreference(mGuestTelephonyPreferenceController.getPreferenceKey())
                 .setOnPreferenceChangeListener(mGuestTelephonyPreferenceController);
@@ -457,6 +467,10 @@ public class UserSettings extends SettingsPreferenceFragment
         } else {
             mSwitchBarController.updateState();
         }
+
+        mSendCensoredNotificationsToCurrentUserPreferenceController.updateState(screen.findPreference(
+                mSendCensoredNotificationsToCurrentUserPreferenceController.getPreferenceKey()));
+
         if (mShouldUpdateUserList) {
             updateUI();
         }
@@ -1417,6 +1431,10 @@ public class UserSettings extends SettingsPreferenceFragment
                 mGuestTelephonyPreferenceController.getPreferenceKey());
         mGuestTelephonyPreferenceController.updateState(guestCallPreference);
 
+        final Preference sendCensoredNotifs = getPreferenceScreen().findPreference(
+                mSendCensoredNotificationsToCurrentUserPreferenceController.getPreferenceKey());
+        mSendCensoredNotificationsToCurrentUserPreferenceController.updateState(sendCensoredNotifs);
+
         final Preference multiUserTopIntroPreference = getPreferenceScreen().findPreference(
                 mMultiUserTopIntroPreferenceController.getPreferenceKey());
         mMultiUserTopIntroPreferenceController.updateState(multiUserTopIntroPreference);
@@ -1929,6 +1947,8 @@ public class UserSettings extends SettingsPreferenceFragment
                             new AddUserWhenLockedPreferenceController(
                                     context, KEY_ADD_USER_WHEN_LOCKED);
                     controller.updateNonIndexableKeys(niks);
+                    new SendCensoredNotificationsToCurrentUserPreferenceController(context,
+                            KEY_SEND_CENSORED_NOTIFICATIONS).updateNonIndexableKeys(niks);
                     new AutoSyncDataPreferenceController(context, null /* parent */)
                             .updateNonIndexableKeys(niks);
                     new AutoSyncPersonalDataPreferenceController(context, null /* parent */)
