@@ -112,6 +112,12 @@ android_library {
         "telephony_flags_core_java_lib",
         "setupdesign-lottie-loading-layout",
         "SystemUISharedLib",
+        "kotlin-stdlib",
+        "kotlinx_coroutines_android",
+        "kotlinx_coroutines",
+        "androidx.fragment_fragment",
+        "androidx.fragment_fragment-ktx",
+        "androidx.preference_preference-ktx",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
