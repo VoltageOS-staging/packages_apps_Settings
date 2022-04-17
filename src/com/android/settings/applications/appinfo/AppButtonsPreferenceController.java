@@ -206,6 +206,15 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
     }
 
     private class UninstallAndDisableButtonListener implements View.OnClickListener {
+        private boolean mChangeEnabledStateOfUserApp;
+
+        UninstallAndDisableButtonListener() {
+            this(false);
+        }
+
+        UninstallAndDisableButtonListener(boolean changeEnabledStateOfUserApp) {
+            mChangeEnabledStateOfUserApp = changeEnabledStateOfUserApp;
+        }
 
         @Override
         public void onClick(View v) {
@@ -237,8 +246,13 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
                             mUserId);
             if (admin != null && !uninstallBlockedBySystem) {
                 RestrictedLockUtils.sendShowAdminSupportDetailsIntent(mActivity, admin);
-            } else if ((mAppEntry.info.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+            } else if ((mAppEntry.info.flags & ApplicationInfo.FLAG_SYSTEM) != 0 || mChangeEnabledStateOfUserApp) {
                 if (mAppEntry.info.enabled && !isDisabledUntilUsed()) {
+                    if (mChangeEnabledStateOfUserApp) {
+                        handleDialogClick(ButtonActionDialogFragment.DialogType.DISABLE);
+                        return;
+                    }
+
                     showDialogInner(ButtonActionDialogFragment.DialogType.DISABLE);
                 } else {
                     mMetricsFeatureProvider.action(
@@ -477,6 +491,25 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
         }
 
         mButtonsPref.setButton2Enabled(enabled);
+
+        if (enabled && !isBundled) {
+            // "enabled" means "show uninstall button" in this context
+            int text;
+            int icon;
+            if (mAppEntry.info.enabled) {
+                text = R.string.disable_text;
+                icon = R.drawable.ic_settings_disable;
+            } else {
+                text = R.string.enable_text;
+                icon = R.drawable.ic_settings_enable;
+            }
+            mButtonsPref
+                    .setButton4Text(text)
+                    .setButton4Icon(icon)
+                    .setButton4Visible(true)
+                    .setButton4OnClickListener(new UninstallAndDisableButtonListener(true))
+            ;
+        }
     }
 
     /**
@@ -500,7 +533,9 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
 
     @VisibleForTesting
     void updateForceStopButton() {
-        if (mDpm.packageHasActiveAdmins(mPackageInfo.packageName)) {
+        if (!mPackageInfo.applicationInfo.enabled) {
+            mButtonsPref.setButton3Visible(false);
+        } else if (mDpm.packageHasActiveAdmins(mPackageInfo.packageName)) {
             // User can't force stop device admin.
             Log.w(TAG, "User can't force stop device admin");
             updateForceStopButtonInner(false /* enabled */);
@@ -525,6 +560,7 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
 
     @VisibleForTesting
     void updateForceStopButtonInner(boolean enabled) {
+        mButtonsPref.setButton3Visible(true);
         if (mAppsControlDisallowedBySystem) {
             mButtonsPref.setButton3Enabled(false);
         } else {
@@ -539,6 +575,7 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
         Uri packageUri = Uri.parse("package:" + packageName);
         Intent uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
         uninstallIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, allUsers);
+        uninstallIntent.putExtra(Intent.EXTRA_UNINSTALL_SHOW_MORE_OPTIONS_BUTTON, false);
 
         mMetricsFeatureProvider.action(mActivity, SettingsEnums.ACTION_SETTINGS_UNINSTALL_APP);
         mFragment.startActivityForResult(uninstallIntent, mRequestUninstall);
