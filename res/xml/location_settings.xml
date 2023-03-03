@@ -77,6 +77,11 @@
             android:title="@string/location_services_preference_title"
             settings:controller="com.android.settings.location.LocationServicesPreferenceController"/>
 
+        <Preference
+            android:key="gnss_supl"
+            android:title="@string/pref_gnss_supl_title"
+            settings:controller="com.android.settings.location.GnssSuplPrefController"/>
+
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference
