@@ -107,5 +107,11 @@ There are HTTP, HTTPS, DNS, DNS-over-TLS and DNS-over-HTTPS connectivity checks.
     <string name="usbc_port_charging_only_when_locked_afu_title">Charging-only when locked, except before first unlock</string>
     <string name="usbc_port_charging_only_when_locked_afu_summary">Doesn’t apply to connections that were made before locking or first unlock</string>
     <string name="usbc_port_on_title">On</string>
+    <string name="deny_new_usb_title">USB peripherals</string>
+    <string name="deny_new_usb_footer">This feature exists to reduce attack surface, especially for a locked device.</string>
+
+    <string name="deny_new_usb_val_disabled">Allow new USB peripherals</string>
+    <string name="deny_new_usb_val_dynamic">Allow new USB peripherals when unlocked</string>
+    <string name="deny_new_usb_val_enabled">Disallow new USB peripherals</string>
 
 </resources>
