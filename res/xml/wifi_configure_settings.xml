@@ -39,6 +39,11 @@
         android:title="@string/wifi_allow_wep_networks"
         settings:controller="com.android.settings.wifi.WepNetworksPreferenceController"/>
 
+    <Preference
+        android:key="wifi_auto_off"
+        android:title="@string/wifi_auto_off_title"
+        settings:controller="com.android.settings.wifi.WifiAutoOffPrefController"/>
+
     <SwitchPreferenceCompat
         android:key="wifi_cellular_data_fallback"
         android:title="@string/wifi_cellular_data_fallback_title"
