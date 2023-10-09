@@ -151,6 +151,7 @@ public class TetherSettings extends RestrictedSettingsFragment
         // Even when the UI is restricted, addPreferencesFromResource cannot be omitted.
         addPreferencesFromResource(R.xml.tether_prefs);
         setIfOnlyAvailableForAdmins(true);
+        addPreferencesFromResource(R.xml.tether_prefs);
         if (isUiRestricted()) {
             return;
         }
