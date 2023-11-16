@@ -272,4 +272,8 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="adj_saturation_title">Saturation</string>
     <string name="adj_intensity_title">Intensity</string>
     <string name="adj_contrast_title">Contrast</string>
+
+    <!-- Auto pin confirm -->
+    <string name="lock_screen_auto_pin_confirm_summary_custom">Unlock automatically if you input a correct PIN. This is slightly less secure than tapping Enter to confirm.</string>
+
 </resources>
