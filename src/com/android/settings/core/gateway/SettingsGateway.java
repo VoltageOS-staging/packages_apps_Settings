@@ -22,6 +22,7 @@ import com.android.settings.MainClear;
 import com.android.settings.MainClearConfirm;
 import com.android.settings.ResetNetwork;
 import com.android.settings.Settings;
+import com.android.settings.Settings.ScreenRefreshRateActivity;
 import com.android.settings.TestingSettings;
 import com.android.settings.TrustedCredentialsSettings;
 import com.android.settings.accessibility.AccessibilityDetailsSettingsFragment;
@@ -217,6 +218,7 @@ import com.android.settings.wifi.details.WifiNetworkDetailsFragment;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
 import com.android.settings.wifi.tether.WifiTetherSettings;
+import com.voltage.settings.display.refreshrate.ScreenRefreshRateFragment;
 
 import com.power.hub.powerhub;
 
@@ -428,7 +430,8 @@ public class SettingsGateway {
             SystemLocalePickerFragment.class.getName(),
             AppLocalePickerFragment.class.getName(),
             SupervisionDashboardFragment.class.getName(),
-            powerhub.class.getName()
+            powerhub.class.getName(),
+            ScreenRefreshRateFragment.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -477,5 +480,6 @@ public class SettingsGateway {
             Settings.NavigationModeSettingsActivity.class.getName(),
             Settings.ShadeSettingsActivity.class.getName(),
             Settings.powerhubActivity.class.getName(),
+            Settings.ScreenRefreshRateActivity.class.getName(),
     };
 }
