@@ -41,7 +41,6 @@ import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.internal.telephony.SmsApplication;
-import com.android.internal.util.GoogleEuicc;
 import com.android.settings.R;
 
 import java.util.ArrayList;
@@ -196,7 +195,8 @@ public class ApplicationFeatureProviderImpl implements ApplicationFeatureProvide
 
                 // EuiccSupportPixel handles firmware updates of embedded secure element that is
                 // used for eSIM, NFC, Felica etc
-                GoogleEuicc.EUICC_SUPPORT_PIXEL_PKG_NAME,
+                PackageId.EUICC_SUPPORT_PIXEL_NAME,
+
         });
 
         PackageManager pm = mContext.getPackageManager();
