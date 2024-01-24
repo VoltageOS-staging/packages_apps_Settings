@@ -29,6 +29,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.UserInfo;
+import android.ext.PackageId;
 import android.location.LocationManager;
 import android.os.RemoteException;
 import android.os.UserManager;
