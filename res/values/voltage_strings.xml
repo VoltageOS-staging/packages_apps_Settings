@@ -528,6 +528,7 @@ When the screen is off, the torch can be enabled with one of the following key c
     <!-- Notification channels -->
     <string name="channel_light_settings_id" translatable="false">light_settings</string>
     <string name="channel_light_settings_name">Light settings preview</string>
+
     <!-- Notification light dialogs -->
     <string name="edit_light_settings">Edit light settings</string>
     <string name="pulse_speed_title">Pulse length and speed</string>
@@ -537,6 +538,7 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="dialog_delete_message">Remove selected item?</string>
     <string name="brightness">Brightness level</string>
     <string name="choose_app">Choose app</string>
+
     <!-- Values for the notification light pulse spinners -->
     <string name="pulse_length_always_on">Always on</string>
     <string name="pulse_length_very_short">Very short</string>
@@ -549,23 +551,29 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="pulse_speed_normal">Normal</string>
     <string name="pulse_speed_slow">Slow</string>
     <string name="pulse_speed_very_slow">Very slow</string>
+
     <!-- Common light settings strings -->
     <string name="light_brightness_title">Brightness levels</string>
     <string name="light_brightness_normal">Normal</string>
     <string name="light_brightness_zen">Do Not Disturb</string>
+
     <!-- Battery light settings -->
     <string name="battery_light_title">Battery light</string>
+    <string name="battery_light_summary">Customize battery charging light behavior</string>
     <string name="battery_light_enable_title">Enable battery light</string>
     <string name="battery_low_pulse_title">Pulse if battery low</string>
     <string name="battery_light_full_charge_disabled_title">Turn off when fully charged</string>
     <string name="battery_light_list_title">Colors</string>
     <string name="battery_light_low_color_title">Battery low</string>
     <string name="battery_light_medium_color_title">Charging</string>
-    <string name="battery_light_full_color_title">Fully charged</string>
+    <string name="battery_light_full_color_title">Charged (90%)</string>
+    <string name="battery_light_really_full_color_title">Charged (100%)</string>
     <string name="battery_light_brightness_normal" translatable="false">@string/light_brightness_normal</string>
     <string name="battery_light_brightness_zen" translatable="false">@string/light_brightness_zen</string>
+
     <!-- Lights settings screen, notification light settings -->
     <string name="notification_light_title">Notification light</string>
+    <string name="notification_light_summary">Customize Notification light behavior</string>
     <string name="notification_light_enable_title">Enable notification light</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_advanced_title">Advanced</string>
@@ -582,12 +590,10 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="keywords_lights_brightness_level">dim leds brightness</string>
     <string name="notification_light_automagic">Choose colors automatically</string>
     <string name="notification_light_automagic_summary">Choosing colors automatically</string>
+
     <!-- Lights settings, LED notification -->
     <string name="led_notification_title">Light settings</string>
     <string name="led_notification_text">LED light enabled by settings</string>
     <string name="notification_light_add_apps_empty_summary">To add per app control, activate \'%1$s\' and press \'Add\'</string>
-
-    <string name="battery_light_summary">Customize battery charging light behavior</string>
-    <string name="notification_light_summary">Customize Notification light behavior</string>
 
 </resources>
