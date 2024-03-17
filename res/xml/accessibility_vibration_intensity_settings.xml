@@ -114,7 +114,7 @@
             android:key="scroll_fling_haptic_feedback"
             android:title="@string/scroll_fling_haptic_feedback_title"
             android:summary="@string/scroll_fling_haptic_feedback_summary"
-            android:dependency="touch_vibration_preference_screen"
+            android:dependency="vibration_intensity_preference_touch"
             android:defaultValue="false" />
 
     </PreferenceCategory>
