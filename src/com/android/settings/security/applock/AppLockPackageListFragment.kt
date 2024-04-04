@@ -54,7 +54,7 @@ class AppLockPackageListFragment : DashboardFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        appLockManager = context.getSystemService(AppLockManager::class.java)
+        appLockManager = context.getSystemService(AppLockManager::class.java)!!
         pm = context.packageManager
         launchablePackages = VoltageUtils.launchablePackages(context)
         whiteListedPackages = resources.getStringArray(
@@ -109,7 +109,7 @@ class AppLockPackageListFragment : DashboardFragment() {
     }
 
     private fun getLabel(packageInfo: PackageInfo) =
-        packageInfo.applicationInfo?.loadLabel(pm).toString()
+        packageInfo.applicationInfo?.loadLabel(pm)?.toString() ?: ""
 
     private fun createPreference(packageInfo: PackageInfo, isProtected: Boolean): Preference {
         val label = getLabel(packageInfo)
