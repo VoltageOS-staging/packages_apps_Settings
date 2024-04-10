@@ -69,7 +69,7 @@ class AppLockPackageListFragment : DashboardFragment() {
                 pm.getInstalledPackages(
                     PackageInfoFlags.of(PackageManager.MATCH_ALL.toLong())
                 ).filter {
-                    !it.applicationInfo.isSystemApp() ||
+                    !(it.applicationInfo?.isSystemApp() == true) ||
                         launchablePackages.contains(it.packageName) ||
                         whiteListedPackages.contains(it.packageName)
                 }.sortedWith { first, second ->

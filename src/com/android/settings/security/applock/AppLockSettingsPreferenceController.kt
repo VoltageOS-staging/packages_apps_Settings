@@ -121,7 +121,7 @@ class AppLockSettingsPreferenceController(
             val title = mContext.getString(R.string.app_lock_authentication_dialog_title)
             val intent = Intent().apply {
                 setClassName(SETTINGS_PACKAGE_NAME,
-                        ConfirmDeviceCredentialActivity::class.qualifiedName)
+                        ConfirmDeviceCredentialActivity::class.java.name)
                 putExtra(KeyguardManager.EXTRA_TITLE, title)
             }
             securityPromptLauncher.launch(intent)
