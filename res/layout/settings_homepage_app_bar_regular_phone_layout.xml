@@ -36,7 +36,10 @@
     <TextView
         android:id="@+id/homepage_title"
         android:text="@string/settings_label"
-        style="@style/HomepageTitleText"/>
+        style="@style/HomepageTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
 
     <FrameLayout
         android:id="@+id/suggestion_content"
