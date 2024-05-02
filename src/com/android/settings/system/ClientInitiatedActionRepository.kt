@@ -20,6 +20,7 @@ import android.content.Context
 import android.content.Intent
 import android.telephony.CarrierConfigManager
 import android.util.Log
+import android.telephony.TelephonyManager
 
 class ClientInitiatedActionRepository(private val context: Context) {
     private val configManager = context.getSystemService(CarrierConfigManager::class.java)!!
@@ -28,6 +29,8 @@ class ClientInitiatedActionRepository(private val context: Context) {
      * Trigger client initiated action (send intent) on system update
      */
     fun onSystemUpdate() {
+        val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager?
+        if(telephonyManager == null || telephonyManager.phoneType == TelephonyManager.PHONE_TYPE_NONE) return
         val bundle =
             configManager.getConfig(
                 CarrierConfigManager.KEY_CI_ACTION_ON_SYS_UPDATE_BOOL,
