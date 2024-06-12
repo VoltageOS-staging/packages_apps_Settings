@@ -63,7 +63,7 @@ class AppDisableButton(
      * Gets whether a package can be disabled.
      */
     private fun ApplicationInfo.canBeDisabled(): Boolean = when {
-        !isSystemApp -> true
+        !isSystemApp && !appButtonRepository.isDisallowControl(this) -> true
         // Try to prevent the user from bricking their phone by not allowing disabling of apps
         // signed with the system certificate.
         isSignedWithPlatformKey -> false
