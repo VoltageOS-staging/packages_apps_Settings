@@ -7,19 +7,36 @@ import android.hardware.usb.UsbManager;
 import android.hardware.usb.UsbPort;
 import android.hardware.usb.ext.PortSecurityState;
 
+import androidx.preference.Preference;
+
 import com.android.settings.R;
 import com.android.settings.ext.IntSettingPrefController;
 
 import java.util.List;
 
 public class UsbPortSecurityPrefController extends IntSettingPrefController {
+    private final boolean appliesToPogoPins;
 
     public UsbPortSecurityPrefController(Context ctx, String key) {
         super(ctx, key, UsbPortSecurity.MODE_SETTING);
+
+        appliesToPogoPins = ctx.getResources().getBoolean(
+                com.android.internal.R.bool.config_usb_port_security_applies_to_pogo_pins);
     }
 
     @Override
     public int getAvailabilityStatus() {
+        String prefKey = getPreferenceKey();
+        if (appliesToPogoPins) {
+            if ("usbc_port".equals(prefKey)) {
+                return UNSUPPORTED_ON_DEVICE;
+            }
+        } else {
+            if ("usbc_port_and_pogo_pins".equals(prefKey)) {
+                return UNSUPPORTED_ON_DEVICE;
+            }
+        }
+
         int res = super.getAvailabilityStatus();
         if (res == AVAILABLE) {
             int config = com.android.internal.R.bool.config_usbPortSecuritySupported;
@@ -32,14 +49,20 @@ public class UsbPortSecurityPrefController extends IntSettingPrefController {
 
     @Override
     protected void getEntries(Entries entries) {
+        boolean pogo = appliesToPogoPins;
+
         Resources res = mContext.getResources();
-        entries.add(R.string.usbc_port_off_title, R.string.usbc_port_off_summary,
+        entries.add(pogo ? R.string.usbc_port_and_pogo_pins_off_title : R.string.usbc_port_off_title,
+                pogo ? R.string.usbc_port_and_pogo_pins_off_summary : R.string.usbc_port_off_summary,
                 UsbPortSecurity.MODE_DISABLED);
-        entries.add(R.string.usbc_port_charging_only_title, R.string.usbc_port_charging_only_summary,
+        entries.add(R.string.usbc_port_charging_only_title,
+                pogo ? R.string.usbc_port_and_pogo_pins_charging_only_summary : R.string.usbc_port_charging_only_summary,
                 UsbPortSecurity.MODE_CHARGING_ONLY);
 
         String title = res.getString(R.string.usbc_port_charging_only_when_locked_title);
-        CharSequence summary = res.getText(R.string.usbc_port_charging_only_when_locked_summary);
+        CharSequence summary = res.getText(pogo ?
+                R.string.usbc_port_and_pogo_pins_charging_only_when_locked_summary :
+                R.string.usbc_port_charging_only_when_locked_summary);
         entries.add(title, summary,
                 UsbPortSecurity.MODE_CHARGING_ONLY_WHEN_LOCKED);
 
