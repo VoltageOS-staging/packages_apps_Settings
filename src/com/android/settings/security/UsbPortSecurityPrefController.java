@@ -1,6 +1,7 @@
 package com.android.settings.security;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.ext.settings.UsbPortSecurity;
 import android.hardware.usb.UsbManager;
 import android.hardware.usb.UsbPort;
@@ -31,15 +32,23 @@ public class UsbPortSecurityPrefController extends IntSettingPrefController {
 
     @Override
     protected void getEntries(Entries entries) {
+        Resources res = mContext.getResources();
         entries.add(R.string.usbc_port_off_title, R.string.usbc_port_off_summary,
                 UsbPortSecurity.MODE_DISABLED);
-        entries.add(R.string.usbc_port_charging_only_title,
+        entries.add(R.string.usbc_port_charging_only_title, R.string.usbc_port_charging_only_summary,
                 UsbPortSecurity.MODE_CHARGING_ONLY);
-        entries.add(R.string.usbc_port_charging_only_when_locked_title, R.string.usbc_port_charging_only_when_locked_summary,
+
+        String title = res.getString(R.string.usbc_port_charging_only_when_locked_title);
+        CharSequence summary = res.getText(R.string.usbc_port_charging_only_when_locked_summary);
+        entries.add(title, summary,
                 UsbPortSecurity.MODE_CHARGING_ONLY_WHEN_LOCKED);
-        entries.add(R.string.usbc_port_charging_only_when_locked_afu_title, R.string.usbc_port_charging_only_when_locked_afu_summary,
+
+        CharSequence titleAfu = res.getText(R.string.usbc_port_charging_only_when_locked_afu_title);
+        String summaryAfu = res.getString(R.string.usbc_port_charging_only_when_locked_afu_summary, title);
+        entries.add(titleAfu, summaryAfu,
                 UsbPortSecurity.MODE_CHARGING_ONLY_WHEN_LOCKED_AFU);
-        entries.add(R.string.usbc_port_on_title,
+
+        entries.add(R.string.usbc_port_on_title, R.string.usbc_port_on_summary,
                 UsbPortSecurity.MODE_ENABLED);
     }
 
