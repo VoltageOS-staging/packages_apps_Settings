@@ -232,4 +232,11 @@ public abstract class AbstractListPreferenceController extends BasePreferenceCon
     protected final CharSequence getText(@StringRes int resId) {
         return mContext.getText(resId);
     }
+
+    /**
+     * Returns whether to require user credential confirmation before changing this preference.
+     */
+    protected boolean isCredentialConfirmationRequired() {
+        return false;
+    }
 }
