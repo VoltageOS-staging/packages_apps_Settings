@@ -41,4 +41,9 @@ public class AutoRebootPrefController extends IntSettingPrefController {
         entries.add(30, MINUTES);
         entries.add(10, MINUTES);
     }
+
+    @Override
+    protected boolean isCredentialConfirmationRequired() {
+        return true;
+    }
 }
