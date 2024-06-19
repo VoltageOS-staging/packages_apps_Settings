@@ -83,4 +83,9 @@ public class DenyNewUsbPrefController extends AbstractListPreferenceController {
         }
         return true;
     }
+
+    @Override
+    protected boolean isCredentialConfirmationRequired() {
+        return true;
+    }
 }
