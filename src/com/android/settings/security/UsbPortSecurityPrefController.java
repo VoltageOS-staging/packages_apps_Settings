@@ -102,4 +102,9 @@ public class UsbPortSecurityPrefController extends IntSettingPrefController {
         setState(pss);
         return true;
     }
+
+    @Override
+    protected boolean isCredentialConfirmationRequired() {
+        return true;
+    }
 }
