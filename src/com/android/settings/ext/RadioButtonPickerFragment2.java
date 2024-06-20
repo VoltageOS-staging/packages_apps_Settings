@@ -148,6 +148,10 @@ public class RadioButtonPickerFragment2 extends RadioButtonPickerFragment {
 
     @Override
     protected boolean setDefaultKey(String key) {
+        if (key.equals(getDefaultKey())) {
+            return true;
+        }
+
         if (!userCredentialConfirmed && prefController.isCredentialConfirmationRequired()) {
             Context ctx = requireContext();
             LockPatternUtils lpu = FeatureFactory.getFeatureFactory()
