@@ -6,6 +6,8 @@ import android.ext.settings.UsbPortSecurity;
 import android.hardware.usb.UsbManager;
 import android.hardware.usb.UsbPort;
 import android.hardware.usb.ext.PortSecurityState;
+import android.os.Bundle;
+import android.os.ResultReceiver;
 
 import androidx.preference.Preference;
 
@@ -80,7 +82,15 @@ public class UsbPortSecurityPrefController extends IntSettingPrefController {
         List<UsbPort> ports = um.getPorts();
 
         for (UsbPort port : ports) {
-            um.setPortSecurityState(port, state);
+            um.setPortSecurityState(port, state, new ResultReceiver(null) {
+                @Override
+                protected void onReceiveResult(int resultCode, Bundle resultData) {
+                    if (resultCode != android.hardware.usb.ext.IUsbExt.NO_ERROR) {
+                        throw new IllegalStateException("setPortSecurityState failed, " +
+                                "resultCode: " + resultCode + ", port: " + port);
+                    }
+                }
+            });
         }
     }
 
