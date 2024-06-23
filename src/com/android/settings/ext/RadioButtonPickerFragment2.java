@@ -68,6 +68,8 @@ public class RadioButtonPickerFragment2 extends RadioButtonPickerFragment {
             userCredentialConfirmed = savedInstanceState.getBoolean(
                     KEY_USER_CREDENTIAL_CONFIRMED, false);
         }
+
+        updateCandidates();
     }
 
     @Override
@@ -189,10 +191,18 @@ public class RadioButtonPickerFragment2 extends RadioButtonPickerFragment {
         prefController.onPause(this);
     }
 
+    private boolean updateCandidatesOnResume;
+
     @Override
     public void onResume() {
         super.onResume();
         prefController.onResume(this);
-        updateCandidates();
+
+        if (updateCandidatesOnResume) {
+            updateCandidates();
+        } else {
+            // updateCandidates() is called from onCreatePrefences() right before the first onResume()
+            updateCandidatesOnResume = true;
+        }
     }
 }
