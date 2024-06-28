@@ -99,10 +99,13 @@ class AppDisableButton(
         ) {
             // Currently we apply the same device policy for both the uninstallation and disable
             // button.
-            if (!app.isSystemApp) {
-                packageInfoPresenter.disable()
-            } else if (!appButtonRepository.isUninstallBlockedByAdmin(app)) {
-                dialogPresenter.open()
+            if (!appButtonRepository.isUninstallBlockedByAdmin(app)) {
+                if (app.isSystemApp) {
+                    dialogPresenter.open()
+                } else {
+                    packageInfoPresenter.disable()
+                }
+
             }
         }
     }
