@@ -29,4 +29,7 @@
     <!-- Whether to show min/max refresh rate in display settings -->
     <bool name="config_show_refresh_rate_controls">false</bool>
 
+    <!-- Whether Wi-Fi hotspot instant should be shown or not. -->
+    <bool name="config_show_wifi_hotspot_instant">true</bool>
+
 </resources>
