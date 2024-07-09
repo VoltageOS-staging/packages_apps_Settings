@@ -54,6 +54,11 @@
             android:title="@string/auto_reboot_title"
             settings:controller="com.android.settings.security.AutoRebootPrefController" />
 
+        <Preference
+            android:key="usbc_port"
+            android:title="@string/usbc_port_title"
+            settings:controller="com.android.settings.security.UsbPortSecurityPrefController" />
+
         <com.android.settingslib.RestrictedPreference
             android:key="biometric_settings"
             android:title="@string/security_settings_biometric_preference_title"
