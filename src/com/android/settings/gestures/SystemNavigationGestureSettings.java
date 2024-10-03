@@ -190,11 +190,11 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment i
 
         if ((KEY_SYSTEM_NAV_2BUTTONS.equals(info.getKey())
                 || KEY_SYSTEM_NAV_3BUTTONS.equals(info.getKey()))
-                Bundle arguments = new Bundle();
-                arguments.putString(KEY_SYSTEM_NAV, info.getKey());
                 // Don't add the settings button if that page will be blank.
                 && !PreferenceControllerListHelper.areAllPreferencesUnavailable(
                         getContext(), getPreferenceManager(), R.xml.button_navigation_settings)) {
+                Bundle arguments = new Bundle();
+                arguments.putString(KEY_SYSTEM_NAV, info.getKey());
             pref.setExtraWidgetOnClickListener((v) ->
                     new SubSettingLauncher(getContext())
                             .setDestination(ButtonNavigationSettingsFragment.class.getName())
