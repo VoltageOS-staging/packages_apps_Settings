@@ -32,7 +32,7 @@ import com.android.settings.core.TogglePreferenceController;
 
 import java.util.Calendar;
 
-import lineageos.providers.LineageSettings;
+import android.provider.Settings;
 
 public class WorkHoursPreferenceController extends TogglePreferenceController {
 
@@ -64,8 +64,8 @@ public class WorkHoursPreferenceController extends TogglePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        long time = LineageSettings.Secure.getLongForUser(mContext.getContentResolver(),
-                LineageSettings.Secure.USER_ACTIVITY_END_TIME, 0, mManagedProfile.getIdentifier());
+        long time = Settings.Secure.getLongForUser(mContext.getContentResolver(),
+                Settings.Secure.USER_ACTIVITY_END_TIME, 0, mManagedProfile.getIdentifier());
         return time != 0 ? mContext.getString(R.string.work_hours_end_on_summary,
                 DateFormat.getTimeFormat(mContext).format(time))
                         : mContext.getString(R.string.work_hours_end_off_summary);
@@ -73,8 +73,8 @@ public class WorkHoursPreferenceController extends TogglePreferenceController {
 
     @Override
     public boolean isChecked() {
-        return LineageSettings.Secure.getLongForUser(mContext.getContentResolver(),
-                LineageSettings.Secure.USER_ACTIVITY_END_TIME, 0, mManagedProfile.getIdentifier())
+        return Settings.Secure.getLongForUser(mContext.getContentResolver(),
+                Settings.Secure.USER_ACTIVITY_END_TIME, 0, mManagedProfile.getIdentifier())
                 != 0;
     }
 
@@ -87,15 +87,15 @@ public class WorkHoursPreferenceController extends TogglePreferenceController {
                         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         calendar.set(Calendar.MINUTE, minute);
                         calendar.set(Calendar.SECOND, 0);
-                        LineageSettings.Secure.putLongForUser(mContext.getContentResolver(),
-                                LineageSettings.Secure.USER_ACTIVITY_END_TIME,
+                        Settings.Secure.putLongForUser(mContext.getContentResolver(),
+                                Settings.Secure.USER_ACTIVITY_END_TIME,
                                 calendar.getTimeInMillis(), mManagedProfile.getIdentifier());
                         updateState(mPreference);
                     }, 17, 0,
                     DateFormat.is24HourFormat(mContext, mManagedProfile.getIdentifier())).show();
         } else {
-            LineageSettings.Secure.putLongForUser(mContext.getContentResolver(),
-                    LineageSettings.Secure.USER_ACTIVITY_END_TIME, 0,
+            Settings.Secure.putLongForUser(mContext.getContentResolver(),
+                    Settings.Secure.USER_ACTIVITY_END_TIME, 0,
                     mManagedProfile.getIdentifier());
             updateState(mPreference);
         }

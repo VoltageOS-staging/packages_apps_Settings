@@ -33,9 +33,9 @@ import android.os.UserManager;
 
 import com.android.settings.R;
 
-import java.util.Calendar;
+import android.provider.Settings;
 
-import lineageos.providers.LineageSettings;
+import java.util.Calendar;
 
 public class UserTimeoutReceiver extends BroadcastReceiver {
 
@@ -57,8 +57,8 @@ public class UserTimeoutReceiver extends BroadcastReceiver {
                         new Intent(ACTION_USER_TIMEOUT).setPackage(context.getPackageName()),
                         PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 context.getContentResolver().registerContentObserver(
-                        LineageSettings.Secure.getUriFor(
-                                LineageSettings.Secure.USER_ACTIVITY_END_TIME), false,
+                        Settings.Secure.getUriFor(
+                                Settings.Secure.USER_ACTIVITY_END_TIME), false,
                         new ContentObserver(new Handler(Looper.getMainLooper())) {
                             @Override
                             public void onChange(boolean selfChange) {
@@ -97,8 +97,8 @@ public class UserTimeoutReceiver extends BroadcastReceiver {
     }
 
     private void setTimeout(Context context) {
-        long time = LineageSettings.Secure.getLong(context.getContentResolver(),
-                LineageSettings.Secure.USER_ACTIVITY_END_TIME, 0);
+        long time = Settings.Secure.getLong(context.getContentResolver(),
+                Settings.Secure.USER_ACTIVITY_END_TIME, 0);
         if (time != 0) {
             Calendar current = Calendar.getInstance();
             Calendar timeout = Calendar.getInstance();
