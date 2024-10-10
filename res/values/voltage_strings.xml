@@ -254,6 +254,8 @@ When the screen is off, the torch can be enabled with one of the following key c
     </plurals>
 
     <string name="custom_timeout_summary_never">Never</string>
+    <string name="custom_timeout_summary_5secs">5 seconds</string>
+    <string name="custom_timeout_summary_10secs">10 seconds</string>
     <string name="custom_timeout_summary_30secs">30 seconds</string>
     <string name="custom_timeout_summary_1min">1 minute</string>
     <string name="custom_timeout_summary_5mins">5 minutes</string>
