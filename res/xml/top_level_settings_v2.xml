@@ -65,6 +65,15 @@
             settings:highlightableMenuKey="@string/menu_key_apps"/>
 
         <com.android.settings.widget.HomepagePreference
+            android:key="top_level_powerhub"
+            android:title="@string/powerhub_title"
+            android:summary="@string/powerhub_summary"
+            android:icon="@drawable/ic_powerhub"
+            android:order="-61"
+            android:fragment="com.power.hub.powerhub"
+            settings:controller="com.power.hub.TopLevelSettingsPreferenceController"/>
+
+        <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.notification.ConfigureNotificationSettings"
             android:icon="@drawable/ic_notifications_filled"
             android:key="top_level_notifications"
