@@ -12,10 +12,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Voltage Category Headers -->
-    <dimen name="voltage_preference_category_padding_top">0.0dip</dimen>
-    <dimen name="voltage_preference_category_line_margin_start">10.0dip</dimen>
-    <dimen name="voltage_preference_category_height">40.0dip</dimen>
+    <color name="voltage_base_bg">@android:color/system_neutral1_10</color>
 
-    <color name="homepage_powerhub_background">#FFC9CF</color>
 </resources>
