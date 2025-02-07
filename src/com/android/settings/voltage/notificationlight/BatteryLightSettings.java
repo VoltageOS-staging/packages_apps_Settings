@@ -36,7 +36,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.voltage.notification.LightsCapabilities;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.voltage.preference.CustomDialogPreference;
+import com.android.settings.custom.preference.CustomDialogPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 

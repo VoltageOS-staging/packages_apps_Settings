@@ -525,6 +525,8 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="show_clipboard_overlay_title">Show clipboard overlay</string>
     <string name="show_clipboard_overlay_summary">Show an overlay in the left bottom corner of the screen when something is copied to the clipboard</string>
 
+    <string name="advanced">Advanced</string>
+
     <!-- Notification channels -->
     <string name="channel_light_settings_id" translatable="false">light_settings</string>
     <string name="channel_light_settings_name">Light settings preview</string>

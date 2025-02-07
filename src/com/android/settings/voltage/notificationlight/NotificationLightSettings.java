@@ -41,7 +41,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.voltage.notification.LightsCapabilities;
-import com.android.settings.voltage.preference.CustomDialogPreference;
+import com.android.settings.custom.preference.CustomDialogPreference;
 import com.android.settings.voltage.widget.PackageListAdapter;
 import com.android.settings.voltage.widget.PackageListAdapter.PackageItem;
 import com.android.settings.R;

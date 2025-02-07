@@ -38,7 +38,7 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.internal.voltage.notification.LightsCapabilities;
 import com.android.internal.voltage.notification.LineageNotification;
-import com.android.settings.voltage.preference.CustomDialogPreference;
+import com.android.settings.custom.preference.CustomDialogPreference;
 import com.android.settings.R;
 
 public class BrightnessPreference extends CustomDialogPreference<AlertDialog>
