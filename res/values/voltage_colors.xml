@@ -5,4 +5,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <color name="homepage_powerhub_background">#FFC9CF</color>
+    <color name="homepage_icon_bg">@*android:color/system_neutral2_50</color>
+    <color name="homepage_subicon_bg">?android:attr/colorAccent</color>
 </resources>
