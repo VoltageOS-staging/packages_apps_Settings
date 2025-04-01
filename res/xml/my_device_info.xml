@@ -95,35 +95,8 @@
             android:title="@string/sim_status_title"
             settings:keywords="@string/keywords_sim_status"
             android:summary="@string/summary_placeholder"
-<<<<<<< HEAD
             settings:isPreferenceVisible="@bool/config_show_sim_info"
             settings:controller="com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController"/>
-=======
-            android:title="@string/firmware_version"
-            settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"
-            app:layout="@layout/voltage_card_top_abt"/>
-
-        <!-- voltage version -->
-        <Preference
-            android:key="voltage_version"
-            android:icon="@drawable/voltage_ver"
-            android:order="6"
-            android:title="@string/voltage_version"
-            android:summary="@string/summary_placeholder"
-            android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
-            app:controller="com.android.settings.deviceinfo.firmwareversion.VoltageVersionPreferenceController"
-            app:layout="@layout/voltage_card_mid_abt"/>
-
-        <!-- voltage maintainer -->
-        <Preference
-            android:key="voltage_maintainer"
-            android:icon="@drawable/maintainer_unofficial"
-            android:order="7"
-            android:title="@string/voltage_maintainer_title"
-            android:summary="@string/summary_placeholder"
-            app:controller="com.android.settings.deviceinfo.voltage.VoltageMaintainerPreferenceController"
-            app:layout="@layout/voltage_card_mid_abt"/>
->>>>>>> af1c3560036 (Settings: refactor maintainer info handling)
 
         <!-- Model & hardware -->
         <Preference
