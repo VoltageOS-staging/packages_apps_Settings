@@ -51,12 +51,11 @@
         settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
 
     <!-- VoltageOS maintainer -->
-    <Preference
+    <com.android.settings.deviceinfo.voltage.RightIconPreference
         android:key="voltage_maintainer"
         android:icon="@drawable/maintainer_unofficial"
         android:title="@string/voltage_maintainer_title"
         android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.voltage.VoltageMaintainerPreferenceController"/>
 
     <!-- Security patch -->
