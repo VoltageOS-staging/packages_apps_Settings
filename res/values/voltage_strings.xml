@@ -573,4 +573,7 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="cycle_type_weekly_sub">Day of each week:\n1 = Monday</string>
     <string name="cycle_type_daily_title">Usage cycle reset hour</string>
     <string name="cycle_type_daily_sub">Hour of each day:</string>
+
+    <string name="screen_off_aod_enabled">Show info briefly after screen turns off</string>
+    <string name="screen_off_aod_enabled_summary">Keep ambient display on for 5 seconds after the screen turns off</string>
 </resources>
