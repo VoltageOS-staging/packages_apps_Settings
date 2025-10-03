@@ -576,4 +576,8 @@ When the screen is off, the torch can be enabled with one of the following key c
 
     <string name="screen_off_aod_enabled">Show info briefly after screen turns off</string>
     <string name="screen_off_aod_enabled_summary">Keep ambient display on for 5 seconds after the screen turns off</string>
+
+    <string name="aod_wallpaper_title">Show wallpaper on AOD</string>
+    <string name="aod_wallpaper_summary">Displays a dimmed version of the lock screen wallpaper on the Always On Display</string>
+
 </resources>
