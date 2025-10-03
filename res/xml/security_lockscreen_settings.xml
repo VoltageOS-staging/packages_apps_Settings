@@ -117,6 +117,12 @@
             android:summary="@string/doze_on_charge_summary"
             android:defaultValue="false" />
 
+        <com.voltage.support.preferences.SecureSettingSwitchPreference
+    	    android:key="doze_always_on_wallpaper_enabled"
+    	    android:title="@string/aod_wallpaper_title"
+    	    android:summary="@string/aod_wallpaper_summary"
+    	    android:defaultValue="false" />
+
         <Preference
             android:key="ambient_display_tap"
             android:title="@string/ambient_display_tap_screen_title"
