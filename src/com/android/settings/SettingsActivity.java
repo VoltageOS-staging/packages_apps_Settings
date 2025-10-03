@@ -281,6 +281,12 @@ public class SettingsActivity extends SettingsBaseActivity
         getMetaData();
         final Intent intent = getIntent();
 
+        if (isSubSettings(intent) && !WizardManagerHelper.isAnySetupWizard(getIntent())) {
+            int themeId = SettingsThemeHelper.isExpressiveTheme(this)
+                    ? R.style.Theme_SubSettings_Expressive : R.style.Theme_SubSettings;
+            setTheme(themeId);
+        }
+
         if (shouldShowMultiPaneDeepLink(intent)
                 && tryStartMultiPaneDeepLink(this, intent, mHighlightMenuKey)) {
             finish();
@@ -305,16 +311,6 @@ public class SettingsActivity extends SettingsBaseActivity
 
         // Getting Intent properties can only be done after the super.onCreate(...)
         final String initialFragmentName = getInitialFragmentName(intent);
-
-        // If this is a sub settings, then apply the SubSettings Theme for the ActionBar content
-        // insets.
-        // If this is in setup flow, don't apply theme. Because light theme needs to be applied
-        // in SettingsBaseActivity#onCreate().
-        if (isSubSettings(intent) && !WizardManagerHelper.isAnySetupWizard(getIntent())) {
-            int themeId = SettingsThemeHelper.isExpressiveTheme(this)
-                    ? R.style.Theme_SubSettings_Expressive : R.style.Theme_SubSettings;
-            setTheme(themeId);
-        }
 
         setContentView(R.layout.settings_main_prefs);
         mMainSwitch = findViewById(R.id.switch_bar);

@@ -17,6 +17,7 @@
 <resources
     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
     <style name="Theme.Settings.Expressive" parent="Theme.SettingsBase.Expressive">
+        <item name="android:windowContentTransitions">false</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:clipChildren">false</item>
         <item name="preferenceTheme">@style/SettingsPreferenceTheme.Expressive</item>
