@@ -37,7 +37,8 @@
         <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
 
         <!-- For edge-to-edge -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@color/settingslib_colorSurface</item>
 
         <!-- For wifi icon -->
         <item name="wifi_signal">@drawable/wifi_signal</item>
@@ -87,7 +88,8 @@
         <!-- Redefine the ActionBar style for contentInsetStart -->
         <item name="android:actionBarStyle">@style/Widget.ActionBar.SubSettings</item>
 
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@color/settingslib_colorSurface</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.SubSettings" parent="Theme.SubSettings.Base"/>

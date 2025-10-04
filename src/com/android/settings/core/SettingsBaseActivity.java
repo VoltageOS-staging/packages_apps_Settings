@@ -39,6 +39,8 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.FragmentActivity;
 
+import androidx.core.view.WindowCompat;
+
 import com.android.settings.R;
 import com.android.settings.SubSettings;
 import com.android.settings.Utils;
@@ -86,6 +88,8 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         final boolean isAnySetupWizard = WizardManagerHelper.isAnySetupWizard(getIntent());
         if (isAnySetupWizard) {
             TransitionHelper.applyForwardTransition(this);
