@@ -580,4 +580,12 @@ When the screen is off, the torch can be enabled with one of the following key c
     <string name="aod_wallpaper_title">Show wallpaper on AOD</string>
     <string name="aod_wallpaper_summary">Displays a dimmed version of the lock screen wallpaper on the Always On Display</string>
 
+    <string name="ambient_bottom_title">AOD bottom</string>
+    <string name="ambient_battery_disable_title">Disabled</string>
+    <string name="ambient_battery_percent_title">Battery level</string> 
+    <string name="ambient_battery_both_title">Battery (Level &amp; temperature)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (Battery &amp; CPU)</string>
+    <string name="display_icon_title">Icons</string>
+    <string name="display_icon_summary">Display icons along with level &amp; temperature</string>
+
 </resources>
