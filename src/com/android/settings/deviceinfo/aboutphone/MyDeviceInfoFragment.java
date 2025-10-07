@@ -32,6 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceScreen;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -56,6 +57,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.widget.EntityHeaderController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.LayoutPreference;
 
@@ -72,6 +75,8 @@ import android.content.IntentFilter;
 
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.TelephonyIntents;
+
+import com.google.android.material.appbar.AppBarLayout;
 
 @SearchIndexable
 public class MyDeviceInfoFragment extends DashboardFragment {
@@ -131,6 +136,21 @@ public class MyDeviceInfoFragment extends DashboardFragment {
         if (isCatalystEnabled()) {
             // remove the preference created from resource to avoid duplicated key
             preferenceScreen.removePreferenceRecursively(KEY_EID_INFO);
+        }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final AppBarLayout appBarLayout = getActivity().findViewById(R.id.app_bar);
+        if (appBarLayout != null) {
+            appBarLayout.setExpanded(false, false);
+        }
+
+        final RecyclerView recyclerView = getListView();
+        if (recyclerView != null) {
+            recyclerView.setNestedScrollingEnabled(false);
         }
     }
 
