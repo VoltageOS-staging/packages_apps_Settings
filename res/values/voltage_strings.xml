@@ -793,6 +793,68 @@ When the screen is off, the torch can be enabled with one of the following key c
         <item>Left for another ROM? Don\’t worry, we didn\’t even clear your cache.</item>
         <item>You broke up for “more features”? We upgraded while you were gone.</item>
         <item>Welcome back. We didn\’t change — we just got more stable than your rebound.</item>
+        <item>Flashing ROMs won\’t fix your life, but it sure feels like it might.</item>
+        <item>“One last clean flash,” — famous last words.</item>
+        <item>Your phone has more wipes than your tears during bootloops.</item>
+        <item>Custom ROM life: 90% waiting, 10% pretending it’s stable.</item>
+        <item>If debugging was therapy, you’d be healed by now.</item>
+        <item>Every reboot is a prayer. Every bootloop, a lesson.</item>
+        <item>ROM addiction isn\’t real. You can quit after this flash. Probably.</item>
+        <item>“No bugs on my device” — said every liar ever.</item>
+        <item>Rooted users say they value privacy. Then install 47 mods from Telegram.</item>
+        <item>“Stable build” — said right before your fifth reboot.</item>
+        <item>Flashed GApps, now wondering why the battery cries.</item>
+        <item>Your phone\’s hotter than your love life. Congrats.</item>
+        <item>You call it customization. We call it digital self-harm.</item>
+        <item>ROM flashing is just astrology for developers.</item>
+        <item>You wanted smooth UI. You got smooth brain instead.</item>
+        <item>One does not simply “flash and chill.”</item>
+        <item>Your battery isn\’t draining — it’s trying to escape your decisions.</item>
+        <item>Upgrade to Official+ for fewer bugs and more hope.</item>
+        <item>Pay 0.99 volts to continue.</item>
+        <item>Feature temporarily unavailable — try believing harder.</item>
+        <item>You\’ve reached the free trial limit for stability.</item>
+        <item>Want smoother animations? Insert a credit card in USB-C.</item>
+        <item>Buy Voltage Prime to remove ads you never had.</item>
+        <item>Funny how our “ideas” show up elsewhere, huh?</item>
+        <item>They can copy the features, not the current.</item>
+        <item>Voltage: where the trends accidentally begin.</item>
+        <item>We build it first. Others take notes.</item>
+        <item>Imitation is the highest form of low effort.</item>
+        <item>By the time they replicate this, we’ll be two updates ahead.</item>
+        <item>They can clone the code, but not the spark.</item>
+        <item>Some call it inspiration. We call it déjà vu.</item>
+        <item>Original flavor, often imitated, never duplicated.</item>
+        <item>They chase stability. We generate it.</item>
+        <item>Your favorite ROM\’s favorite ROM.</item>
+        <item>We don’t chase perfection — we compile it.</item>
+        <item>Other builds dream of booting like this.</item>
+        <item>VoltageOS: where bugs come to confess.</item>
+        <item>We don’t compete. We benchmark ourselves.</item>
+        <item>Flashed once, respected forever.</item>
+        <item>We dropped an update. The internet took notes.</item>
+        <item>Even your recovery smiles when it sees us.</item>
+        <item>Born to perform. Compiled to impress.</item>
+        <item>VoltageOS — because stability got tired of being boring.</item>
+        <item>Join the current. Abandon the stock.</item>
+        <item>In Voltage we trust. In bootloops we repent.</item>
+        <item>The path to enlightenment is paved with clean flashes.</item>
+        <item>Our gospel: stability, speed, chaos (in that order).</item>
+        <item>Voltage isn\’t just an OS — it’s a way of life.</item>
+        <item>Reboot daily, commit often, praise the build.</item>
+        <item>We are the current. Resistance is futile.</item>
+        <item>Flashing is ritual. Stability is salvation.</item>
+        <item>Our doctrine: If it works, it\’s a feature. If it breaks, it’s divine testing.</item>
+        <item>Other builds talk features. We talk revolutions.</item>
+        <item>They copy. We create. They crash. We charge.</item>
+        <item>If other ROMs are rehearsals, Voltage is the main event.</item>
+        <item>They chase updates. We define them.</item>
+        <item>Other builds are tutorials. We are the masterclass.</item>
+        <item>Resistance is futile. VoltageOS always wins.</item>
+        <item>We don\’t need an army. We have the current.</item>
+        <item>They promise stability. We deliver enlightenment.</item>
+        <item>Other ROMs reboot. We transcend.</item>
+        <item>If bootloops are war, VoltageOS is the victory lap.</item>
     </string-array>
 
     <!-- Random toasts for unofficial builds -->
@@ -843,6 +905,24 @@ When the screen is off, the torch can be enabled with one of the following key c
         <item>Still flashing unofficial? Official is already waiting.</item>
         <item>Unofficial is a hobby. Official is a lifestyle.</item>
         <item>Unofficial builds are cute experiments. Official is the real VoltageOS.</item>
+        <item>Oh, you like it rough? Stay unofficial then.</item>
+        <item>Official builds won’t ghost you after a dirty flash.</item>
+        <item>Go official, baby. It\’s like this, but with the drama.</item>
+        <item>Some features may explode. That\’s part of the thrill.</item>
+        <item>Not all heroes run certified builds.</item>
+        <item>This one came straight from the underground labs.</item>
+        <item>Updates? Let\’s just say… they find *you*.</item>
+        <item>Congratulations — you’ve entered the experimental timeline.</item>
+        <item>If it works, it\’s a feature. If not, it’s a legend.</item>
+        <item>You\’re not supposed to have this… but we won’t tell.</item>
+        <item>Support? Ha. You\’re the support now.</item>
+        <item>This version doesn’t exist — and neither do the bugs. Probably.</item>
+        <item>If it booted, congratulations — you’re the chosen one.</item>
+        <item>Half the features missing? That’s just “generic experience.”</item>
+        <item>Working audio? Must be a miracle patch day.</item>
+        <item>Welcome to club — where nothing fits, but we make it work.</item>
+        <item>You didn\’t flash a ROM. You invoked a ritual.</item>
+
     </string-array>
     
 </resources>
