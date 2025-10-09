@@ -29,6 +29,15 @@
         android:defaultValue="false"
         settings:controller="com.android.settings.display.HomepageToastPreferenceController"/>
 
+    <EditTextPreference
+        android:key="homepage_toast_custom_text"
+        android:title="@string/homepage_toast_text_title"
+        android:summary="@string/homepage_toast_text_summary"
+        android:dialogTitle="@string/homepage_toast_text_title"
+        android:dependency="homepage_toast_messages"
+        settings:controller="com.android.settings.display.HomepageToastTextPreferenceController"
+        settings:isPreferenceVisible="false"/>
+
     <PreferenceCategory
         android:title="@string/category_name_brightness"
         android:order="-200">

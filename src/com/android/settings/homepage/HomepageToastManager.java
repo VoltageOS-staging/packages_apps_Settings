@@ -21,6 +21,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemProperties;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import java.util.Random;
 public class HomepageToastManager {
 
     private static final String KEY_VOLTAGE_BUILD_STATUS_PROP = "ro.voltage.build.status";
+    private static final String KEY_CUSTOM_TEXT = "homepage_toast_custom_text";
     private static final long REFRESH_INTERVAL_MS = 30000;
 
     private final Context mContext;
@@ -88,6 +90,19 @@ public class HomepageToastManager {
 
     private void showNextToast(boolean resetTimer) {
         if (mToastTextView == null) return;
+
+        String customMessage = Settings.System.getString(mContext.getContentResolver(), KEY_CUSTOM_TEXT);
+
+        if (!TextUtils.isEmpty(customMessage)) {
+            mToastTextView.setText(customMessage);
+            mToastCard.setClickable(false);
+            stopAutoRefresh();
+            return;
+        }
+
+        if (!mToastCard.isClickable()) {
+            mToastCard.setClickable(true);
+        }
 
         final String buildStatus = SystemProperties.get(KEY_VOLTAGE_BUILD_STATUS_PROP, "UNOFFICIAL");
         final String[] toasts = mContext.getResources().getStringArray(

@@ -928,5 +928,7 @@ When the screen is off, the torch can be enabled with one of the following key c
     <!-- Homepage toasts -->
     <string name="homepage_toast_title">Homepage toast messages</string>
     <string name="homepage_toast_summary">Replace suggestion card with random messages</string>
+    <string name="homepage_toast_text_title">Custom message</string>
+    <string name="homepage_toast_text_summary">Set a personal message to display</string>
     
 </resources>
