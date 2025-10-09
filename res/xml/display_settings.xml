@@ -22,6 +22,13 @@
     android:title="@string/display_settings"
     settings:keywords="@string/keywords_display">
 
+    <SwitchPreference
+        android:key="homepage_toast_messages"
+        android:title="@string/homepage_toast_title"
+        android:summary="@string/homepage_toast_summary"
+        android:defaultValue="false"
+        settings:controller="com.android.settings.display.HomepageToastPreferenceController"/>
+
     <PreferenceCategory
         android:title="@string/category_name_brightness"
         android:order="-200">

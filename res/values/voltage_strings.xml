@@ -924,5 +924,9 @@ When the screen is off, the torch can be enabled with one of the following key c
         <item>You didn\’t flash a ROM. You invoked a ritual.</item>
 
     </string-array>
+
+    <!-- Homepage toasts -->
+    <string name="homepage_toast_title">Homepage toast messages</string>
+    <string name="homepage_toast_summary">Replace suggestion card with random messages</string>
     
 </resources>

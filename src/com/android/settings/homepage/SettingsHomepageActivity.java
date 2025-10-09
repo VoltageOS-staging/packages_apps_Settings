@@ -43,6 +43,7 @@ import android.util.ArraySet;
 import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -112,6 +113,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     private TopLevelSettings mMainFragment;
     private View mHomepageView;
     private View mSuggestionView;
+    private HomepageToastManager mHomepageToastManager;
     private View mTwoPaneSuggestionView;
     private CategoryMixin mCategoryMixin;
     private Set<HomepageLoadedListener> mLoadedListeners;
@@ -162,11 +164,22 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         if (mAllowUpdateSuggestion) {
             Log.i(TAG, "showHomepageWithSuggestion: " + showSuggestion);
             mAllowUpdateSuggestion = false;
-            if (Flags.homepageRevamp()) {
-                mSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
+            if (mHomepageToastManager != null && mHomepageToastManager.isEnabled()) {
+                if (mTwoPaneSuggestionView != null) {
+                    mTwoPaneSuggestionView.setVisibility(View.GONE);
+                }
+                mSuggestionView.setVisibility(View.VISIBLE);
+                mHomepageToastManager.showToastCard();
             } else {
-                mSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
-                mTwoPaneSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
+                if (mHomepageToastManager != null) {
+                    mHomepageToastManager.hideToastCard();
+                }
+                if (Flags.homepageRevamp()) {
+                    mSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
+                } else {
+                    mSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
+                    mTwoPaneSuggestionView.setVisibility(showSuggestion ? View.VISIBLE : View.GONE);
+                }
             }
         }
 
@@ -314,6 +327,24 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     @VisibleForTesting
     void initSplitPairRules() {
         new ActivityEmbeddingRulesController(getApplicationContext()).initRules();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAllowUpdateSuggestion = true;
+        showHomepageWithSuggestion(true /* a dummy value, logic is handled inside */);
+        if (mHomepageToastManager != null && mHomepageToastManager.isEnabled()) {
+            mHomepageToastManager.startAutoRefresh();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mHomepageToastManager != null) {
+            mHomepageToastManager.stopAutoRefresh();
+        }
     }
 
     @Override
@@ -496,6 +527,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         if (Flags.homepageRevamp()) {
             mSuggestionView = findViewById(R.id.suggestion_content);
+            mHomepageToastManager = new HomepageToastManager(this, (ViewGroup) mSuggestionView);
         } else {
             mSuggestionView = findViewById(R.id.suggestion_content);
             mTwoPaneSuggestionView = findViewById(R.id.two_pane_suggestion_content);
@@ -507,15 +539,17 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         // Schedule a timer to show the homepage and hide the suggestion on timeout.
         mHomepageView.postDelayed(() -> showHomepageWithSuggestion(false),
                 HOMEPAGE_LOADING_TIMEOUT_MS);
-        if (Flags.homepageRevamp()) {
-            showFragment(new SuggestionFragCreator(fragmentClass, true),
-                    R.id.suggestion_content);
-        } else {
-            showFragment(new SuggestionFragCreator(fragmentClass, /* isTwoPaneLayout= */ false),
-                    R.id.suggestion_content);
-            if (mIsEmbeddingActivityEnabled) {
-                showFragment(new SuggestionFragCreator(fragmentClass, /* isTwoPaneLayout= */ true),
-                        R.id.two_pane_suggestion_content);
+        if (mHomepageToastManager == null || !mHomepageToastManager.isEnabled()) {
+            if (Flags.homepageRevamp()) {
+                showFragment(new SuggestionFragCreator(fragmentClass, true),
+                        R.id.suggestion_content);
+            } else {
+                showFragment(new SuggestionFragCreator(fragmentClass, /* isTwoPaneLayout= */ false),
+                        R.id.suggestion_content);
+                if (mIsEmbeddingActivityEnabled) {
+                    showFragment(new SuggestionFragCreator(fragmentClass, /* isTwoPaneLayout= */ true),
+                            R.id.two_pane_suggestion_content);
+                }
             }
         }
     }
