@@ -237,6 +237,13 @@
             android:fragment="com.android.settings.display.DisplayCutoutForceFullscreenSettings"
             settings:controller="com.android.settings.display.DisplayCutoutForceFullscreenPreferenceController" />
 
+        <Preference
+            android:key="per_app_rotation_settings"
+            android:title="@string/per_app_rotation_title"
+            android:summary="@string/per_app_rotation_summary"
+            android:fragment="com.android.settings.display.PerAppRotationSettings"
+            settings:controller="com.android.settings.display.PerAppRotationPreferenceController" />
+
        <!-- Lid event behavior-->
         <ListPreference
             android:key="lid_behavior"
