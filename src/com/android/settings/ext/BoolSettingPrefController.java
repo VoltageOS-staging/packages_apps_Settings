@@ -28,11 +28,11 @@ public class BoolSettingPrefController extends AbstractTogglePrefController
     private final UserHandle user;
     private final ExtSettingControllerHelper<BoolSetting> helper;
 
-    protected BoolSettingPrefController(Context ctx, String key, BoolSetting setting) {
+    public BoolSettingPrefController(Context ctx, String key, BoolSetting setting) {
         this(ctx, key, setting, ctx.getUser());
     }
 
-    protected BoolSettingPrefController(Context ctx, String key, BoolSetting setting, UserHandle user) {
+    public BoolSettingPrefController(Context ctx, String key, BoolSetting setting, UserHandle user) {
         super(ctx, key);
         this.setting = setting;
         this.user = user;
