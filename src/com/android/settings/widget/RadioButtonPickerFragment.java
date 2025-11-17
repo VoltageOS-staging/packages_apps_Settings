@@ -203,9 +203,6 @@ public abstract class RadioButtonPickerFragment extends SettingsPreferenceFragme
             addIllustration(screen);
         }
         addPrefsBeforeList(screen);
-        if (!mAppendStaticPreferences) {
-            addStaticPreferences(screen);
-        }
         PreferenceGroup radioButtonsGroup = screen;
         if (mCategoryTitleId != 0) {
             Context context = getPrefContext();
