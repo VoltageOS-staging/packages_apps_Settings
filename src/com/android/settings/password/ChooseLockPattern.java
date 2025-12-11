@@ -295,6 +295,7 @@ public class ChooseLockPattern extends SettingsActivity {
                     }
 
                     public void onPatternDetected(List<LockPatternView.Cell> pattern,
+                                                  byte size,
                                                   InputMode inputMode) {
                         mInputMode = inputMode;
                         mInputPattern = pattern;
