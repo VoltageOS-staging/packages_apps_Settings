@@ -160,6 +160,7 @@ import com.android.settings.spa.SpaActivity;
 import com.android.settings.spa.app.appinfo.AppInfoSettingsProvider;
 import com.android.settings.spa.app.appinfo.CloneAppInfoSettingsProvider;
 import com.android.settings.widget.LoadingViewController;
+import com.android.settings.widget.SettingsBounceEdgeEffectFactory;
 import com.android.settings.wifi.AppStateChangeWifiStateBridge;
 import com.android.settings.wifi.ChangeWifiStateDetails;
 import com.android.settingslib.RestrictedLockUtils;
@@ -475,6 +476,7 @@ public class ManageApplications extends InstrumentedFragment
         mRecyclerView.setItemAnimator(null);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getContext(), RecyclerView.VERTICAL, false /* reverseLayout */));
+        mRecyclerView.setEdgeEffectFactory(new SettingsBounceEdgeEffectFactory());
         mRecyclerView.setAdapter(mApplications);
 
         // We have to do this now because PreferenceFrameLayout looks at it

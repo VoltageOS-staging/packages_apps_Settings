@@ -54,6 +54,7 @@ import com.android.settings.restriction.UserRestrictionBindingHelper;
 import com.android.settings.support.actionbar.HelpResourceProvider;
 import com.android.settings.widget.HighlightablePreferenceGroupAdapter;
 import com.android.settings.widget.LoadingViewController;
+import com.android.settings.widget.SettingsBounceEdgeEffectFactory;
 import com.android.settingslib.CustomDialogPreferenceCompat;
 import com.android.settingslib.CustomEditTextPreferenceCompat;
 import com.android.settingslib.core.instrumentation.Instrumentable;
@@ -392,6 +393,19 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
 
     public View getEmptyView() {
         return mEmptyView;
+    }
+
+    @Override
+    public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
+            Bundle savedInstanceState) {
+        RecyclerView recyclerView = super.onCreateRecyclerView(inflater, parent, savedInstanceState);
+        configureRecyclerView(recyclerView);
+        return recyclerView;
+    }
+
+    @VisibleForTesting
+    void configureRecyclerView(@NonNull RecyclerView recyclerView) {
+        recyclerView.setEdgeEffectFactory(new SettingsBounceEdgeEffectFactory());
     }
 
     @Override
